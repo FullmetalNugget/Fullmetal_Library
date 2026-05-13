@@ -10,11 +10,13 @@ using Raylib_cs;
 
 namespace FullmetalLibrary
 {
-    public partial class Component1
+    public partial class KeyMovement
     {
         public Vector2 position;
         public Vector2 direction;
         public float speed;
+        public float Rotation;
+        public float RotationSpeed = 4f;
 
         public void Transform(Vector2 position, Vector2 direction, float speed)
         {
@@ -26,6 +28,16 @@ namespace FullmetalLibrary
         public void Move(float deltaTime)
         {
             position += direction * speed * deltaTime;
+        }
+
+        public void RotateLeft()
+        {
+            Rotation -= RotationSpeed;
+        }
+
+        public void RotateRight()
+        {
+            Rotation += RotationSpeed;
         }
 
         public void KeyboardControl(KeyboardKey W, KeyboardKey S, KeyboardKey A, KeyboardKey D, float deltaTime)
